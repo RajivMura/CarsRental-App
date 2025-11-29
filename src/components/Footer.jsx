@@ -5,7 +5,7 @@ const Footer = () => {
     return (
 
         <div className='px-6 md:px-16 lg:px-24 xl:px-32  mt-69 text-sm text-gray-500'>
-            <div className='flex flex-wrap justify-between items-start  gap-8 pb-6 border-borderColor'>
+            <div className='flex flex-wrap justify-between items-start  gap-8 pb-6 border-borderColor border'>
                 <div >
                     <img src={assets.logo} alt="logo" className=' h-8 md:h-9' />
                     <p className='max-w-80 mt-3'>
@@ -55,16 +55,28 @@ const Footer = () => {
 
                     </ul>
                 </div>
+
+                <div>
+                    <h2 className='text-base font-medium  text-gray-800 uppercase'>Resources</h2>
+                    <ul className='mt-3 flex flex-col gap-1.5'>
+                        <li><a href="#">Luxury Drive</a></li>
+                        <li><a href="#">Guwahati</a></li>
+                        <li><a href="#">+1 2343456649</a></li>
+                        <li><a href="#">info@example.com</a></li>
+
+                    </ul>
+                </div>
  
             </div>
             <hr className='border-gray-300 mt-8' />
             <div className='flex flex-col md:flex-row gap-2 items-center justify-between py-5'>
-                <p>© {new Date().getFullYear()} <a href="https://prebuiltui.com">PrebuiltUI</a>. All rights reserved.</p>
+                <p>© {new Date().getFullYear()} Brand. All rights reserved.</p>
                 <ul className='flex items-center gap-4'>
-                    <li>Luxury Drive</li>
-                    <li>San Francisco</li>
-                    <li>+1 2343456649</li>
-                    <li>info@example.com</li>
+                    <li><a href="">Privacy</a></li>
+                    <li> | </li>
+                    <li><a href="">Terms</a></li>
+                    <li> | </li>
+                    <li><a href="">Cookies</a></li>
                 </ul>
             </div>
 
