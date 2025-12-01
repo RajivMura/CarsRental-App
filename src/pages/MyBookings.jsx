@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { dummyMyBookingsData } from '../assets/assets'
+import { assets, dummyMyBookingsData } from '../assets/assets'
 import Title from '../components/Title'
 
 const MyBookings = () => {
+
+  const currency = import.meta.env.VITE_CURRENCY
 
 
   const [bookings, setBookings] = useState([])
@@ -33,15 +35,53 @@ const MyBookings = () => {
 
               <p className='text-lg font-medium mt-2'>{bookings.car.brand} {bookings.car.model}</p>
               <p className='text-gray-500'>{bookings.car.year}  {bookings.car.category}  {bookings.car.location}</p>
-            
+            </div>
+
+            {/*Booking Info*/}
+
+            <div className='md:col-span-2'>
+              <div className='flex items-center gap-2'>
+                <p className='px-3 py1.5 bg-light rounded'>Booking</p>
+                <p className={`px-3 py-1 text-xs rounded-full ${bookings.status === 'confirmed' ? 'bg-green-400/15 text-green-600' : 'bg-red-400/15 text-red-600'}`}>{bookings.status}</p>
+              </div>
+
+              <div className='flex items-start gap-2 mt-3'>
+                <img src={assets.calendar_icon_colored} alt="" className='w-4 h-4 mt-1' />
+                <div>
+                  <p className='text-gray-500'>Rental Period</p>
+                  <p>{bookings.pickupDate.split('T')[0]} To {bookings.returnDate.split('T')[0]}</p>
+                </div>
+              </div>
+
+              <div className='flex items-start gap-2 mt-3'>
+                <img src={assets.location_icon_colored} alt="" className='w-4 h-4 mt-1' />
+                <div>
+                  <p className='text-gray-500'>Pick-up Location</p>
+                  <p>{bookings.car.location}</p>
+                </div>
+              </div>
+            </div>
+
+            {/*Price */}
+
+            <div className='md:col-span-1 flex flex-col justify-between gap-6'>
+              <div className='text-sm text-gray-500 text-right'>
+                <p>Total Price</p>
+                <h1 className='text-2xl font-semibold text-primary'>{currency}{bookings.price}</h1>
+                <p>Booked on {bookings.createdAt.split('T')[0]}</p>
+              </div>
             
             </div>
+
           
+        
           </div>
         ))}
+
       </div>
       
     </div>
+      
   ) 
 }
 
